@@ -1,6 +1,7 @@
 # Azure-Resource-Manager-Template-Sample
 
 ## Basic Commands
+### Azure-cli
 
 - List Subscriptions
   ```
