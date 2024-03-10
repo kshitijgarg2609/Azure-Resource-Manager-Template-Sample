@@ -5,7 +5,7 @@
 
 - List Subscriptions
   ```
-  az group list --output table
+  az account list --output table
   ```
 - Set Subscription
   ```
