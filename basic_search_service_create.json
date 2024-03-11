@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion":"1.0.0.0",
+    "parameters": {
+        "basic_sku" : {
+            "type": "string",
+            "defaultValue": "basic",
+            "allowedValues": [
+                "basic",
+                "free",
+                "standard",
+                "standard2",
+                "standard3",
+                "storage_optimized_l1",
+                "storage_optimized_l2"]
+        }
+    },
+    "variables": {
+        "resource_name" : "kgsearchtest123",
+        "resource_name_full" : "[concat(variables('resource_name'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Search/searchServices",
+            "apiVersion": "2022-09-01",
+            "name": "[variables('resource_name_full')]",
+            "location" : "[resourceGroup().location]",
+            "tags": {
+                "displayName": "[variables('resource_name')]"
+            },
+            "sku": {
+                "name": "free"
+            }
+        }
+    ]
+}
